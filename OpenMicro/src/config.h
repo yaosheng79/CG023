@@ -30,7 +30,7 @@
 // battery saver
 // do not start software if battery is too low
 // flashes 2 times repeatedly at startup
-#define STOP_LOWBATTERY
+//#define STOP_LOWBATTERY
 
 // under this voltage the software will not start 
 // if STOP_LOWBATTERY is defined above

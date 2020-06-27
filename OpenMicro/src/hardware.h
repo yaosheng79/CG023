@@ -35,37 +35,37 @@
 // comment out to disable
 //#define ENABLE_VREG_PIN
 
-#define VREG_PIN_1 GPIO_Pin_5
-#define VREG_PORT_1 GPIOA
+//#define VREG_PIN_1 GPIO_Pin_5
+//#define VREG_PORT_1 GPIOA
 
 
 // BUZZER pin settings - buzzer active "high"
 // SWDAT and SWCLK pins OK here
 // GPIO_Pin_13 // SWDAT - GPIO_Pin_14 // SWCLK 
-#define BUZZER_PIN       GPIO_Pin_x 
-#define BUZZER_PIN_PORT  GPIOA
+//#define BUZZER_PIN       GPIO_Pin_x 
+//#define BUZZER_PIN_PORT  GPIOA
 // x (micro)seconds after loss of tx or low bat before buzzer starts
-#define BUZZER_DELAY     30e6 
+//#define BUZZER_DELAY     30e6 
 
 
 // set zero to disable (0 - 4)
 #define LED_NUMBER 4
 
-#define LED1PIN GPIO_Pin_4
-#define LED1PORT GPIOA
+#define LED1PIN GPIO_Pin_1
+#define LED1PORT GPIOB
 
 #define LED2PIN GPIO_Pin_2
-#define LED2PORT GPIOA
+#define LED2PORT GPIOB
 
-#define LED3PIN GPIO_Pin_12
-#define LED3PORT GPIOA
+#define LED3PIN GPIO_Pin_5
+#define LED3PORT GPIOB
 
-#define LED4PIN GPIO_Pin_0
-#define LED4PORT GPIOB
+#define LED4PIN GPIO_Pin_1
+#define LED4PORT GPIOA
 
 // aux leds
 // set zero to disable (0 - 2)
-#define AUX_LED_NUMBER 1
+#define AUX_LED_NUMBER 0
 
 #define AUX_LED1PIN GPIO_Pin_2
 #define AUX_LED1PORT GPIOB
@@ -103,18 +103,19 @@
 
 // pins for hw i2c , select one only
 // select pins PB6 and PB7 OR select pins PA9 and PA10
-#define HW_I2C_PINS_PB67
+//#define HW_I2C_PINS_PB67
+#define HW_I2C_PINS_PB78
 //#define HW_I2C_PINS_PA910
 
 // softi2c pins definitons
 #define SOFTI2C_SDAPIN GPIO_Pin_7
 #define SOFTI2C_SDAPORT GPIOB
 
-#define SOFTI2C_SCLPIN GPIO_Pin_6
+#define SOFTI2C_SCLPIN GPIO_Pin_8
 #define SOFTI2C_SCLPORT GPIOB
 
-#define SOFTI2C_GYRO_ADDRESS 0x68
-//#define SOFTI2C_GYRO_ADDRESS 0x69
+//#define SOFTI2C_GYRO_ADDRESS 0x68
+#define SOFTI2C_GYRO_ADDRESS 0x69
 
 // disable the check for known gyro that causes the 4 times flash
 //#define DISABLE_GYRO_CHECK
@@ -130,7 +131,7 @@
 
 // Analog battery input pin and adc channel
 
-#define BATTERYPIN GPIO_Pin_7
+#define BATTERYPIN GPIO_Pin_2
 #define BATTERYPORT GPIOA
 #define BATTERY_ADC_CHANNEL ADC_Channel_7
 
@@ -149,17 +150,17 @@
 //disable pins so they don't interfere with other pins 
 //#define DISABLE_SPI_PINS
 
-#define SPI_MOSI_PIN GPIO_Pin_3
-#define SPI_MOSI_PORT GPIOB
+#define SPI_MOSI_PIN GPIO_Pin_7
+#define SPI_MOSI_PORT GPIOA
 
-#define SPI_MISO_PIN GPIO_Pin_15
+#define SPI_MISO_PIN GPIO_Pin_6
 #define SPI_MISO_PORT GPIOA
 
-#define SPI_CLK_PIN GPIO_Pin_4
-#define SPI_CLK_PORT GPIOB
+#define SPI_CLK_PIN GPIO_Pin_5
+#define SPI_CLK_PORT GPIOA
 
-#define SPI_SS_PIN GPIO_Pin_5
-#define SPI_SS_PORT GPIOB
+#define SPI_SS_PIN GPIO_Pin_4
+#define SPI_SS_PORT GPIOA
 
 // check for radio chip ( 3 times flash = not found)
 #define RADIO_CHECK
@@ -184,8 +185,8 @@
 
 // pwm pin initialization
 // enable the pwm pins to be used here ( multiple pins ok)
-#define PWM_PA0
-#define PWM_PA1
+//#define PWM_PA0
+//#define PWM_PA1
 //#define PWM_PA2
 //#define PWM_PA3
 //#define PWM_PA4
@@ -194,8 +195,8 @@
 //#define PWM_PA7
 #define PWM_PA8
 #define PWM_PA9
-//#define PWM_PA10
-//#define PWM_PA11
+#define PWM_PA10
+#define PWM_PA11
 //#define PWM_PB0
 //#define PWM_PB1
 //#define PWM_PB8
@@ -206,7 +207,7 @@
 // back-left motor
 // motor 0 pin
 
-#define MOTOR0_PIN_PA0
+//#define MOTOR0_PIN_PA0
 //#define MOTOR0_PIN_PA1
 //#define MOTOR0_PIN_PA2
 //#define MOTOR0_PIN_PA3
@@ -216,7 +217,7 @@
 //#define MOTOR0_PIN_PA7
 //#define MOTOR0_PIN_PA8
 //#define MOTOR0_PIN_PA9
-//#define MOTOR0_PIN_PA10
+#define MOTOR0_PIN_PA10
 //#define MOTOR0_PIN_PA11
 //#define MOTOR0_PIN_PB0
 //#define MOTOR0_PIN_PB1
@@ -226,7 +227,7 @@
 // motor 1 pin
 
 //#define MOTOR1_PIN_PA0
-#define MOTOR1_PIN_PA1
+//#define MOTOR1_PIN_PA1
 //#define MOTOR1_PIN_PA2
 //#define MOTOR1_PIN_PA3
 //#define MOTOR1_PIN_PA4
@@ -234,7 +235,7 @@
 //#define MOTOR1_PIN_PA6
 //#define MOTOR1_PIN_PA7
 //#define MOTOR1_PIN_PA8
-//#define MOTOR1_PIN_PA9
+#define MOTOR1_PIN_PA9
 //#define MOTOR1_PIN_PA10
 //#define MOTOR1_PIN_PA11
 //#define MOTOR1_PIN_PB0
@@ -252,10 +253,10 @@
 //#define MOTOR2_PIN_PA5
 //#define MOTOR2_PIN_PA6
 //#define MOTOR2_PIN_PA7
-#define MOTOR2_PIN_PA8
+//#define MOTOR2_PIN_PA8
 //#define MOTOR2_PIN_PA9
 //#define MOTOR2_PIN_PA10
-//#define MOTOR2_PIN_PA11
+#define MOTOR2_PIN_PA11
 //#define MOTOR2_PIN_PB0
 //#define MOTOR2_PIN_PB1
 //#define MOTOR2_PIN_PB8
@@ -271,8 +272,8 @@
 //#define MOTOR3_PIN_PA5
 //#define MOTOR3_PIN_PA6
 //#define MOTOR3_PIN_PA7
-//#define MOTOR3_PIN_PA8
-#define MOTOR3_PIN_PA9
+#define MOTOR3_PIN_PA8
+//#define MOTOR3_PIN_PA9
 //#define MOTOR3_PIN_PA10
 //#define MOTOR3_PIN_PA11
 //#define MOTOR3_PIN_PB0
@@ -296,4 +297,3 @@
 // pin / port for the RGB led ( programming port ok )
 #define RGB_PIN GPIO_Pin_11
 #define RGB_PORT GPIOA
-

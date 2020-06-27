@@ -33,8 +33,10 @@ THE SOFTWARE.
 
 // pins for hw i2c , select one only
 // select pins PB6 and PB7
+// OR PB7 and PB8
 // OR select pins PA9 and PA10
 //#define HW_I2C_PINS_PB67
+//#define HW_I2C_PINS_PB78
 //#define HW_I2C_PINS_PA910
 
 
@@ -94,8 +96,10 @@ THE SOFTWARE.
 
 
 #ifndef HW_I2C_PINS_PA910
+#ifndef HW_I2C_PINS_PB78
 #ifndef HW_I2C_PINS_PB67
 #define HW_I2C_PINS_PB67
+#endif
 #endif
 #endif
 
@@ -121,7 +125,12 @@ gpioinitI2C1.GPIO_PuPd = GPIO_PuPd_UP;
 gpioinitI2C1.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
 GPIO_Init(GPIOB, &gpioinitI2C1);
 #endif
-	
+
+#ifdef HW_I2C_PINS_PB78
+gpioinitI2C1.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8;
+GPIO_Init(GPIOB, &gpioinitI2C1);
+#endif
+
 #ifdef HW_I2C_PINS_PA910
 gpioinitI2C1.GPIO_Pin = GPIO_Pin_9 | GPIO_Pin_10;
 GPIO_Init(GPIOA, &gpioinitI2C1);
@@ -132,6 +141,11 @@ GPIO_Init(GPIOA, &gpioinitI2C1);
 #ifdef HW_I2C_PINS_PB67
 GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_1);
 GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_1);
+#endif
+
+#ifdef HW_I2C_PINS_PB78
+GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_1);
+GPIO_PinAFConfig(GPIOB, GPIO_PinSource8, GPIO_AF_1);
 #endif
 
 #ifdef HW_I2C_PINS_PA910
@@ -146,6 +160,12 @@ RCC_APB1PeriphClockCmd( RCC_APB1Periph_I2C1, ENABLE);
 RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 SYSCFG_I2CFastModePlusConfig(SYSCFG_I2CFastModePlus_PB6 , ENABLE);
 SYSCFG_I2CFastModePlusConfig(SYSCFG_I2CFastModePlus_PB7 , ENABLE);
+#endif
+
+#ifdef HW_I2C_PINS_PB78
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+SYSCFG_I2CFastModePlusConfig(SYSCFG_I2CFastModePlus_PB7 , ENABLE);
+SYSCFG_I2CFastModePlusConfig(SYSCFG_I2CFastModePlus_PB8 , ENABLE);
 #endif
 
 #ifdef HW_I2C_PINS_PA910
